@@ -86,7 +86,7 @@ export default {
 
 .login-dialog {
 
-  width:74%;
+  width:24%;
 }
 
 .el-dialog__header {

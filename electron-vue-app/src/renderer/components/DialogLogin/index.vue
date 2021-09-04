@@ -5,17 +5,17 @@
     <el-dialog title="PDF转换器" custom-class="login-dialog" :modal="dialog_modal" :close-on-click-modal="click_dialog_modal_close" :visible.sync="dialogVisible" :before-close="handleClose" v-draggable>
 
       <div class="login-title" >用户登录</div>
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" style="margin-bottom: 50px;">
+      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm" style="margin-bottom: 50px;">
           <el-form-item label="用户名" prop="username">
-            <el-input style="width: 300px;" placeholder="填写用户名（手机号码）" v-model.number="ruleForm.username"></el-input>
+            <el-input style="width: 240px; margin-right: 150px;" placeholder="填写用户名（手机号码）" v-model.number="ruleForm.username"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <div style="display: flex;">
-              <el-input style="width: 180px; margin-right: 50px;" maxlength=36 placeholder="请输入密码" type="text" v-model="ruleForm.password" autocomplete="off"></el-input>
+              <el-input style="margin-right: 150px;" maxlength=36 placeholder="请输入密码" type="text" v-model="ruleForm.password" autocomplete="off"></el-input>
             </div>
           </el-form-item>
           <el-form-item>
-            <el-button style="width: 300px; height:40px; font-size: 12px;" type="primary" @click="submitForm('ruleForm')">立即登录</el-button>
+            <el-button style="width: 220px; height:40px; font-size: 12px;" type="primary" @click="submitForm('ruleForm')">立即登录</el-button>
           </el-form-item>
       </el-form>
       <el-divider></el-divider>
@@ -175,6 +175,10 @@ export default {
   text-align: center; 
   font-size: 16px;
   margin-bottom: 20px;
+}
+
+.login-dialog {
+  width: 400px;
 }
 
 
