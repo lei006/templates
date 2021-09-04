@@ -20,7 +20,7 @@
       </el-form>
       <el-divider></el-divider>
       <div class="tig-txt">
-        <el-link type="primary" style="font-size:20px;" @click="onBtnToRegedit"><b>创建一个帐号，立即登录</b></el-link>
+        <el-link type="primary" style="font-size:20px;" @click="onBtnToRegedit"><b>创建一个帐号{{setup.version}}，立即登录</b></el-link>
       </div>
     </el-dialog>
 
@@ -30,6 +30,9 @@
 <script>
 
 const {ipcRenderer, shell} = require('electron')
+
+import {mapActions, mapState,mapGetters} from 'vuex' //注册 action 和 state
+
 
 export default {
   data() {
@@ -76,6 +79,16 @@ export default {
       sendsms_space: "",
     }
   },
+  computed: {
+    //在这里映射 store.state.count，使用方法和 computed 里的其他属性一样
+    ...mapState([
+        'setup'
+    ]),
+    setup () {
+        return this.$store.state.setup
+    },
+  },
+
 
   created() {
   },
