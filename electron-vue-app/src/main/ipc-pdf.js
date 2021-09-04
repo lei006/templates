@@ -298,9 +298,10 @@ function _conver_async(cmd, stdout_callback) {
 }
 
 function _conver_sync(cmd) {
-  const { execSync } = require('child_process');
-  var output = execSync('.\\helper\\FFileConverter.exe ' + cmd); 
-  return output.toString('utf8');
+  //const { execSync } = require('child_process');
+  //var output = execSync('.\\helper\\FFileConverter.exe ' + cmd); 
+  //return output.toString('utf8');
+  return cmd;
 }
 
 
