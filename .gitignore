@@ -2,3 +2,4 @@
 /electron-vue-app/dist
 /electron-vue-app/package-lock.json
 /gin-server-template/restful_api/.vscode
+/gin-server-template/restful_api/views
