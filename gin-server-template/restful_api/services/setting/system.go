@@ -30,6 +30,7 @@ var (
 
 	HardSn string //硬件id
 
+	TokenKeepTime = int(365 * 24 * 60 * 60) //秒
 )
 
 func init() {
@@ -53,7 +54,7 @@ func init() {
 	}
 
 	//加载配置文件
-	err = ReLoadConfig()
+	err = ReLoadSysConfig()
 	if err != nil {
 		logs.Error("server exit : read config file error =", err.Error())
 		time.Sleep(time.Second)
@@ -86,7 +87,7 @@ func init() {
 
 }
 
-func ReLoadConfig() error {
+func ReLoadSysConfig() error {
 
 	configpath := flag.String("c", "conf/app.conf", "The default to load the conf/app.conf")
 	flag.Parse()

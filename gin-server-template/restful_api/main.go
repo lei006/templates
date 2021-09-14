@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gin-server-template/servers/app"
-	"gin-server-template/servers/setting"
+	"gin-server-template/services/app"
+	"gin-server-template/services/setting"
 	"gin-server-template/utils"
 
 	"github.com/beego/beego/v2/core/logs"
