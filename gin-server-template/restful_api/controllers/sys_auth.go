@@ -17,6 +17,8 @@ type AuthController struct {
 }
 
 func (auth *AuthController) Login(ctx *gin.Context) {
+	logs.Error("admin password99999999999999999")
+	fmt.Println("11111111111111 xxxxxxxxxxxx  1111111111")
 
 	//name := ctx.DefaultPostForm("name", "李小花")
 	login := entity.LoginStruct{}
@@ -26,7 +28,7 @@ func (auth *AuthController) Login(ctx *gin.Context) {
 		return
 	}
 
-	logs.Debug("admin password", login)
+	logs.Warn("admin password", login)
 	// 验证超级密码
 	if login.Username == "admin" && login.Password == setting.AdminPassword {
 		// 超级admin

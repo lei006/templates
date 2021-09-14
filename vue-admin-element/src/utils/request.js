@@ -47,26 +47,35 @@ service.interceptors.response.use(
 
     // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 20000) {
-      Message({
-        message: res.message || 'Error',
-        type: 'error',
-        duration: 5 * 1000
-      })
+      //Message({ message: res.message || 'Error', type: 'error', duration: 5 * 1000 })
+
+      if (res.code === 50010 ) {
+        Message({ message: res.message, type: 'error', duration: 5 * 1000 })
+      }
 
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
-        // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
-          confirmButtonText: 'Re-Login',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        }).then(() => {
-          store.dispatch('user/resetToken').then(() => {
-            location.reload()
-          })
+      if (res.code === 50008) {
+        MessageBox.confirm('错误的Token', '提示', {confirmButtonText: '重新登录',cancelButtonText: '取消',type: 'warning'}).then(() => {
+          store.dispatch('user/resetToken').then(() => {location.reload()})
         })
       }
+      if (res.code === 50014) {
+        store.dispatch('user/resetToken').then(() => {location.reload()})
+        /*
+        MessageBox.confirm('登录超时，请重新登录(Token已过期)', '提示', {confirmButtonText: '重新登录',cancelButtonText: '取消',type: 'warning'}).then(() => {
+          store.dispatch('user/resetToken').then(() => {location.reload()})
+        })
+        */
+      }
+      if (res.code === 50012) {
+        MessageBox.confirm('该帐号在其它地方登录', '提示', {confirmButtonText: '确定',cancelButtonText: '取消',type: 'warning'}).then(() => {
+          store.dispatch('user/resetToken').then(() => {location.reload()})
+        })
+      }
+
+
       return Promise.reject(new Error(res.message || 'Error'))
+      return res
     } else {
       return res
     }

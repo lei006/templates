@@ -5,17 +5,21 @@ import (
 	"gin-server-template/routers"
 	"gin-server-template/services/setting"
 
+	"github.com/beego/beego/v2/adapter/logs"
 	"github.com/gin-gonic/gin"
 )
 
-func _init() error {
-
-	return nil
-}
-
 func Run(engine *gin.Engine) {
 
-	_init()
+	logs.EnableFuncCallDepth(true)
+
+	////////////////////////////////////
+	//1. 实始化数据库
+	err := InitDB("")
+	if err != nil {
+		fmt.Println("InitDB error:", err.Error())
+		return
+	}
 
 	routers.Init(engine)
 
