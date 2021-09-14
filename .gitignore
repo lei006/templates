@@ -1,3 +1,4 @@
 /electron-vue-app/build
 /electron-vue-app/dist
 /electron-vue-app/package-lock.json
+/gin-server-template/restful_api/.vscode
