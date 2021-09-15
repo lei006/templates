@@ -3,3 +3,6 @@
 /electron-vue-app/package-lock.json
 /gin-server-template/restful_api/.vscode
 /gin-server-template/restful_api/views
+/electron-base-app/build
+/electron-base-app/dist
+/electron-base-app/package-lock.json
