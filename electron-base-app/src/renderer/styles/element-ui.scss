@@ -1,0 +1,148 @@
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
+
+.el-dialog {
+  box-shadow: 0px 0px 16px 3px rgba(150,150, 150,0.9); 
+  transform: scale(1); 
+  transition: box-shadow 0.6s, transform 0.5s;
+}
+
+.el-dialog:hover{
+	box-shadow: 0px 0px 16px 3px rgba(80,80,80,0.9);
+	transition: box-shadow 0.5s;
+}
+
+.el-dialog__header {
+  padding: 10px 10px 5px;
+  border-bottom-width: 1px;
+  border-bottom-color: #ddd;
+  border-bottom-style: solid;
+}
+
+.el-dialog__headerbtn {
+  margin-top: -6px;
+}
+
+.el-dialog__body {
+  padding: 15px 10px;
+}
+
+.el-dialog__footer {
+  padding: 5px 10px 10px;
+}
+
+
+.el-tabs__item {
+  padding: 0px 15px;
+  font-weight:400;
+  height: 72px;
+  line-height: 72px;
+}
+.el-tabs__nav-next, .el-tabs__nav-prev {
+  line-height: 72px;
+}
+
+.el-tabs__item span {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.el-tabs__item.is-active {
+  background-color: #efefef;
+  font-weight: bold;
+}
+
+
+
+.el-upload-dragger {
+  width: 560px;
+  height: 320px;
+  padding-top:60px;
+}
+
+.el-upload-list {
+  display: none;
+}
+
+.el-button--primary {
+  background-color: #0077CC;
+  border-color: #0077CC;
+}
+
+.el-button--primary.is-plain {
+  color: #0077CC;
+  background: #fcf5ff;
+  border-color: #7077CC;
+}
+
+
+.con-el-button {
+  border-radius: 2px;
+  border-color: #46424f;
+  color: #333;
+  padding: 8px 14px;
+}
+
+.con-el-button:hover {
+  background-color: #fdfdfd;
+}
+
+
+.con-el-button i {
+  font-size: 20px;
+}
+
+
+.el-message {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
