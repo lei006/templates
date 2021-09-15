@@ -92,6 +92,8 @@ func ReLoadSysConfig() error {
 	configpath := flag.String("c", "conf/app.conf", "The default to load the conf/app.conf")
 	flag.Parse()
 
+	p_config_port := flag.Int("p", HttpPort, "defaut")
+
 	config_filenamepath := WorkPath + *configpath
 	//config_filenamepath := "D:/Work/webdcm/viewer/trunk_gin/" + *configpath
 	//config_filenamepath := "D:/Work/webdcm/viewer/trunk_gin/conf/app.conf"
@@ -106,7 +108,7 @@ func ReLoadSysConfig() error {
 		return err
 	}
 
-	HttpPort = iniconf.DefaultInt("httpport", HttpPort)
+	HttpPort = iniconf.DefaultInt("httpport", *p_config_port)
 	RunMode = iniconf.DefaultString("runmode", RunMode)
 
 	return nil
