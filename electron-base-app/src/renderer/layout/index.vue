@@ -2,7 +2,13 @@
   <div :class="classObj" class="app-wrapper">
     <div class="main-container">
       <div class="fixed-main">
+        <!--
         <app-main />
+        
+        <iframe  id="iframeContain" name="iframeContain" seamless scrolling="yes" :src="iframeURL">
+        -->
+        <div><h1>这是测试</h1></div>
+        
       </div>
     </div>
   </div>
@@ -10,6 +16,8 @@
 
 <script>
 import { Navbar,Footer, AppMain } from './components'
+var tcpPortUsed = require('tcp-port-used');
+
 
 export default {
   name: 'Layout',
@@ -28,6 +36,14 @@ export default {
         mobile: true,
       }
     }
+  },
+  mounted(){
+
+    tcpPortUsed.waitUntilFree(g_config.port, 500, 6000000).then(function() {
+    }, function(err) {
+        console.log('wait port free Error:', err.message);
+    });
+
   },
   methods: {
     handleClickOutside() {
@@ -76,7 +92,12 @@ export default {
   }
   .fixed-main {
     width: 100%;
-    flex: 1;    
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
   }
 
   .fixed-footer {
