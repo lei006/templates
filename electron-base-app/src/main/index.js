@@ -2,9 +2,8 @@
 const { app, BrowserWindow, dialog, globalShortcut, ipcMain, session } = require('electron')
 
 const {read_config} = require('./readconfig.js');
+var tcpPortUsed = require('tcp-port-used');
 
-const fs = require('fs')
-const path = require('path')
 
 let g_config = undefined;
 
@@ -22,10 +21,6 @@ const winURL = process.env.NODE_ENV === 'development'
 
 //app.commandLine.appendSwitch('ignore-certificate-errors')
 
-
-
-
-let g_debug = false
 let win_main = null;
 
 function createWindow () {  
@@ -43,7 +38,8 @@ function createWindow () {
     },
     titleBarStyle:"hidden",
     hasShadow:true,
-    autoHideMenuBar:(g_debug==false),
+    fullscreen: (g_config.runmode !== "debug"),
+    autoHideMenuBar: true,
   })
 
   win_main.once('ready-to-show', () => {
@@ -57,124 +53,11 @@ function createWindow () {
   });
   //win_main.loadFile('./src/views/main.html')
   win_main.loadURL(winURL)
-
-
 }
-
-
-ipcMain.on('app-mini', (event, arg) => {
-  win_main.minimize();
-})
-
 
 ipcMain.on('app-exit', (event, arg) => {
   app.exit(0)
 })
-
-
-
-//打开目录
-ipcMain.on('open-directory-dialog', async function (event, filters) {
-  let ret = await dialog.showOpenDialog({properties: ['openDirectory']});
-  event.returnValue = ret;
-})
-
-
-ipcMain.on('app-path', async function (event) {
-  //event.returnValue = app.getAppPath();
-
-  let doc_path = app.getPath("documents") + "\\基本APP";
-
-  mkdirsSync(doc_path)
-
-  event.returnValue = doc_path;
-})
-
-function mkdirsSync(dirname) {
-  if (fs.existsSync(dirname)) {
-    return true;
-  } else {
-    if (mkdirsSync(path.dirname(dirname))) {
-      fs.mkdirSync(dirname);
-      return true;
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//得到目录下的文件
-ipcMain.on('get-directory-file', async function (event, filters) {
-
-  let outfilelist = [];
-
-  let ret = await dialog.showOpenDialog({properties: ['openDirectory', 'multiSelections']});
-  console.log(ret)
-  if (ret.canceled == false) {
-    let filePaths = ret.filePaths;
-    
-    for (let i = 0; i < filePaths.length; i++) {
-      const filepath = filePaths[i];
-      let tmp = getFiles(filepath, filters)
-
-      console.log("  get-directory-file = ", filepath, filters, tmp)
-
-
-      outfilelist = outfilelist.concat(tmp);
-    }
-    
-  }
-
-  event.returnValue = outfilelist;
-})
-
-
-
-
-ipcMain.on('open-file-dialog', async function (event, filters) {
-  //console.log(await dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
-  //event.returnValue = await dialog.showOpenDialog({properties: ['openFile', 'openDirectory']});
-  let outfilelist = [];
-  let ret = await dialog.showOpenDialog({properties: ['openFile', 'multiSelections'],filters:filters});
-  if (ret.canceled == false) {
-    outfilelist = ret.filePaths;
-  }
-
-  event.returnValue = outfilelist;
-})
-
-
-function getFiles(_path, filters) {
-  let outfilelist = [];
-  let ret_file_list = fs.readdirSync(_path);
-  for (let i = 0; i < ret_file_list.length; i++) {
-    const file = _path +"\\"+ ret_file_list[i];
-    let ext_name = path.extname(file).replace(".","");
-    let index_of = filters.indexOf(ext_name);
-    if (index_of >= 0 ) {
-      outfilelist.push(file)
-    }
-  }
-  return outfilelist;
-}
-
-
-
-require('./ipc-pdf')
-
-
-
 
 read_config("config.json", function(config) {
 
@@ -182,8 +65,21 @@ read_config("config.json", function(config) {
 
   // user pro debug
   g_config.runmode = g_config.runmode || "user";
+  g_config.port = g_config.port || 28083;
 
   app.whenReady().then(createWindow)
+  /*
+  tcpPortUsed.waitUntilFree(g_config.port, 500, 6000000).then(function() {
+  }, function(err) {
+      console.log('wait port free Error:', err.message);
+  });
+  */
+
+
+
+
+
+
 
 })
 

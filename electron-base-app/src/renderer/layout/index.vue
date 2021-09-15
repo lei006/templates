@@ -1,15 +1,9 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <div class="main-container">
-      <div class="fixed-header">
-        <navbar />
-      </div>
       <div class="fixed-main">
         <app-main />
-      </div>      
-      <div class="fixed-footer">
-        <Footer />
-      </div>      
+      </div>
     </div>
   </div>
 </template>
