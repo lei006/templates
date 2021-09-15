@@ -1,10 +1,12 @@
 
 const { app, BrowserWindow, dialog, globalShortcut, ipcMain, session } = require('electron')
 
+const {read_config} = require('./readconfig.js');
 
 const fs = require('fs')
 const path = require('path')
 
+let g_config = undefined;
 
 /**
  * Set `__static` path to static files in production
@@ -24,13 +26,7 @@ const winURL = process.env.NODE_ENV === 'development'
 
 
 let g_debug = false
-
-
 let win_main = null;
-
-let g_userinfo = {};
-
-
 
 function createWindow () {  
 
@@ -65,9 +61,6 @@ function createWindow () {
 
 }
 
-app.whenReady().then(createWindow)
-
-
 
 ipcMain.on('app-mini', (event, arg) => {
   win_main.minimize();
@@ -90,7 +83,7 @@ ipcMain.on('open-directory-dialog', async function (event, filters) {
 ipcMain.on('app-path', async function (event) {
   //event.returnValue = app.getAppPath();
 
-  let doc_path = app.getPath("documents") + "\\海豚PDF转化器";
+  let doc_path = app.getPath("documents") + "\\基本APP";
 
   mkdirsSync(doc_path)
 
@@ -179,4 +172,22 @@ function getFiles(_path, filters) {
 
 
 require('./ipc-pdf')
+
+
+
+
+read_config("config.json", function(config) {
+
+  g_config = config;
+
+  // user pro debug
+  g_config.runmode = g_config.runmode || "user";
+
+  app.whenReady().then(createWindow)
+
+})
+
+
+
+
 

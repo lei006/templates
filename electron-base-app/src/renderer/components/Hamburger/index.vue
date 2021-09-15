@@ -1,6 +1,6 @@
 <template>
   <div class="logo-box" @click="toggleClick">
-    <el-image style="width: 36px; height: 36px; margin-left:8px; margin-right:8px;" :src="logo_url" :fit="logo_fit"></el-image>海豚PDF转化器
+    <el-image style="width: 36px; height: 36px; margin-left:8px; margin-right:8px;" :src="logo_url" :fit="logo_fit"></el-image>基本APP
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
       logo_fit:"cover",
     }
   },
-
+  
   methods: {
     toggleClick() {
       this.$emit('toggleClick')
