@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"gin-server-template/services/setting"
+
+	"github.com/beego/beego/v2/adapter/logs"
 )
 
 func InitDB(path string) error {
@@ -12,16 +14,18 @@ func InitDB(path string) error {
 	dbDataSource := setting.DbDataSource
 
 	fmt.Println("InitDB DriverName", driverName)
-	fmt.Println("InitDB DataSource", dbDataSource)
 
 	// beego.AppConfig.DefaultString("DbDataSource", path+Default_DbDataSource)
 	var err error
 
 	if driverName == "sqlite3" {
+		dbDataSource = setting.WorkPath + dbDataSource
+		logs.Debug("InitSqlite DataSource", dbDataSource)
 		if err = InitSqlite(dbDataSource); err != nil {
 			return err
 		}
 	} else if driverName == "mysql" {
+		logs.Debug("InitMySql DataSource", dbDataSource)
 		if err = InitMySql(dbDataSource); err != nil {
 			return err
 		}

@@ -25,8 +25,8 @@ var (
 
 	RunMode = RunMode_PROD
 
-	WorkPath   = ""
-	log_enable = "true"
+	WorkPath  = ""
+	log_level = "true"
 
 	HardSn string //硬件id
 
@@ -69,9 +69,9 @@ func init() {
 
 	//////////////////////////////////////////////////////////
 	// 配置日志...
-	if log_enable == "true" {
+	if log_level != "no" && log_level != "" {
 		log_filename := WorkPath + strings.ToLower(AppName) + ".log"
-		logs.SetLogger(logs.AdapterFile, `{"filename":"`+log_filename+`"}`)
+		logs.SetLogger(logs.AdapterFile, `{"filename":"`+log_filename+`", "level":`+log_level+`}`)
 	}
 
 	logs.Debug("")
@@ -110,6 +110,7 @@ func ReLoadSysConfig() error {
 
 	HttpPort = iniconf.DefaultInt("httpport", *p_config_port)
 	RunMode = iniconf.DefaultString("runmode", RunMode)
+	log_level = iniconf.DefaultString("log_level", log_level)
 
 	return nil
 }
