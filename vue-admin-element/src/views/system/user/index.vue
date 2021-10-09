@@ -212,7 +212,9 @@ export default {
         let ret = await addUser(this.ruleForm)
         if (ret.code === 20000) {
           this.dialogVisible = false;
-          this.userlist.push(ret.data);
+          this.ruleForm.id = ret.code.data;
+
+          this.userlist.push(this.ruleForm);
         }else{
           this.$message({message:ret.message,type: 'error'})
         }
