@@ -32,6 +32,7 @@ func (auth *AuthController) Login(ctx *gin.Context) {
 	// 验证超级密码
 	if login.Username == "admin" && login.Password == setting.AdminPassword {
 		// 超级admin
+		logs.Warn("admin---------- password", login)
 
 		newToken := utils.RandomTimeString(6)
 		if err := models.ModToken.AddOne(newToken, 0, setting.TokenKeepTime); err != nil {

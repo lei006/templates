@@ -1,6 +1,7 @@
 package app
 
 import (
+	"embed"
 	"fmt"
 	"gin-server-template/routers"
 	"gin-server-template/services/setting"
@@ -9,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Run(engine *gin.Engine) {
+func Run(engine *gin.Engine, views embed.FS, views_static embed.FS) {
 
 	logs.EnableFuncCallDepth(true)
 
@@ -21,7 +22,7 @@ func Run(engine *gin.Engine) {
 		return
 	}
 
-	routers.Init(engine)
+	routers.Init(engine, views, views_static)
 
 	engine.Run(fmt.Sprintf(":%d", setting.HttpPort))
 }

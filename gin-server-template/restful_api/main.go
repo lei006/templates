@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"gin-server-template/services/app"
 	"gin-server-template/services/setting"
 	"gin-server-template/utils"
@@ -9,6 +10,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lei006/go-assist/tools/daemontool"
 )
+
+//go:embed views
+var views embed.FS
+
+//go:embed views/static/*
+var views_static embed.FS
 
 func main() {
 
@@ -23,6 +30,6 @@ func app_run() {
 
 	logs.Notice("app run at port: ", setting.HttpPort)
 
-	app.Run(gin.Default())
+	app.Run(gin.Default(), views, views_static)
 
 }

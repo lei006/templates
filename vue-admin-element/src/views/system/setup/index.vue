@@ -70,17 +70,7 @@ export default {
     },
     async onLoadAll() {
 
-      let ret = await getConfig("SnapshotInterval");
-      this.SnapshotInterval = ret.data + ""
 
-      ret = await getConfig("CheckToken");
-      this.CheckToken = ret.data
-
-      ret = await getConfig("LogLevel");
-      this.LogLevel = ret.data + ""
-
-      ret = await getConfig("SnapshotToThumbnails");
-      this.SnapshotToThumbnails = ret.data
     },
 
 
