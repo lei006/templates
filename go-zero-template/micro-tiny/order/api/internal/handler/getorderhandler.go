@@ -3,10 +3,10 @@ package handler
 import (
 	"net/http"
 
-	"api/internal/logic"
-	"api/internal/svc"
-	"api/internal/types"
 	"github.com/tal-tech/go-zero/rest/httpx"
+	"micro-tiny/order/api/internal/logic"
+	"micro-tiny/order/api/internal/svc"
+	"micro-tiny/order/api/internal/types"
 )
 
 func getOrderHandler(ctx *svc.ServiceContext) http.HandlerFunc {

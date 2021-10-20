@@ -1,10 +1,7 @@
 package svc
 
 import (
-	"api/internal/config"
-	"micro-tiny/user/rpc/userclient"
-
-	"github.com/tal-tech/go-zero/zrpc"
+	"micro-tiny/order/api/internal/config"
 )
 
 type ServiceContext struct {

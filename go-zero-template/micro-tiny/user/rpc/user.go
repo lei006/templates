@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"micro-tiny/rpc/internal/config"
-	"micro-tiny/rpc/internal/server"
-	"micro-tiny/rpc/internal/svc"
-	"micro-tiny/rpc/user"
+	"micro-tiny/user/rpc/internal/config"
+	"micro-tiny/user/rpc/internal/server"
+	"micro-tiny/user/rpc/internal/svc"
+	"micro-tiny/user/rpc/user"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/core/service"

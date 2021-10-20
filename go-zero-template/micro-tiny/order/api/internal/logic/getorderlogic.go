@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"api/internal/svc"
-	"api/internal/types"
+	"micro-tiny/order/api/internal/svc"
+	"micro-tiny/order/api/internal/types"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -17,7 +17,6 @@ type GetOrderLogic struct {
 }
 
 func NewGetOrderLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetOrderLogic {
-
 	return GetOrderLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,

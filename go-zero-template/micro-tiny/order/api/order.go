@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"api/internal/config"
-	"api/internal/handler"
-	"api/internal/svc"
+	"micro-tiny/order/api/internal/config"
+	"micro-tiny/order/api/internal/handler"
+	"micro-tiny/order/api/internal/svc"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/rest"

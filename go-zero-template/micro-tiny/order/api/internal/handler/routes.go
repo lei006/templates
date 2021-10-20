@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"api/internal/svc"
+	"micro-tiny/order/api/internal/svc"
 
 	"github.com/tal-tech/go-zero/rest"
 )
