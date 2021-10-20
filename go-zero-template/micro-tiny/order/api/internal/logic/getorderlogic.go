@@ -6,6 +6,7 @@ import (
 
 	"micro-tiny/order/api/internal/svc"
 	"micro-tiny/order/api/internal/types"
+	"micro-tiny/user/rpc/userclient"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
