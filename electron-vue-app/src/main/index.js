@@ -2,8 +2,14 @@
 const { app, BrowserWindow, dialog, globalShortcut, ipcMain, session } = require('electron')
 
 
+
+
 const fs = require('fs')
 const path = require('path')
+
+import modeDB from './mode_db'
+
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 
 /**
@@ -43,7 +49,8 @@ function createWindow () {
     minWidth:640,
     minHeight:480,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     },
     titleBarStyle:"hidden",
     hasShadow:true,
@@ -118,7 +125,7 @@ function mkdirsSync(dirname) {
 
 
 
-
+/*
 
 
 //得到目录下的文件
@@ -175,8 +182,7 @@ function getFiles(_path, filters) {
   }
   return outfilelist;
 }
+*/
 
 
-
-require('./ipc-pdf')
-
+modeDB.Start();

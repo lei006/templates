@@ -18,6 +18,7 @@ export default {
     data() {
       return {
         user_url: require("@/assets/img_navbar/user.png"),
+        logo_fit:"cover"
       }
     },
   created() {
