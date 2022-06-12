@@ -1,9 +1,0 @@
-
-{
-    "port":8080,
-    "runmode":"debug",
-    "hpp":{
-        "width": 1920,
-        "height":1080
-    }
-}
