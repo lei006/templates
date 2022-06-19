@@ -1,0 +1,52 @@
+{
+  "name": "electron-vite",
+  "private": true,
+  "version": "0.0.0",
+  "main": "src/main/index.js",
+  "scripts": {
+    "dev": "concurrently -k \"yarn dev:vite\" \"yarn dev:electron-vite\"",
+    "dev:vite": "vite",
+    "dev:electron": "cross-env NODE_ENV=devlopment electron src/main/index.js",
+    "dev:electron-vite": "wait-on tcp:3000 && yarn dev:electron",
+    "build": "yarn build:vite && yarn build:electron",
+    "build:vite": "vue-tsc --noEmit && vite build",
+    "build:main": "vue-tsc --noEmit && vite build",
+    "build:electron": "electron-builder",
+    "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.your-website.your-app",
+    "productName": "ElectronApp",
+    "copyright": "Copyright © 2021 <your-name>",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "src/main/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "build"
+    }
+  },
+
+  "dependencies": {
+    "vue": "^3.2.25",
+    "wait-on": "^6.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "concurrently": "^7.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^19.0.4",
+    "electron-builder": "^23.0.3",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}
