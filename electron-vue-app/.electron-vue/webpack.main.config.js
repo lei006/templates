@@ -11,7 +11,6 @@ const MinifyPlugin = require("babel-minify-webpack-plugin")
 let mainConfig = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
-    ipcpdf: path.join(__dirname, '../src/main/ipc-pdf.js')
   },
   externals: [
     ...Object.keys(dependencies || {})

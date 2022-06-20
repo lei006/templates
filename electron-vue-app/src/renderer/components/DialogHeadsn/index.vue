@@ -32,7 +32,6 @@ export default {
     let _self = this;
 
 
-    this.heardsn = ipcRenderer.sendSync('hardsn')
 
 
   },
