@@ -6,3 +6,4 @@
 /electron-base-app/build
 /electron-base-app/dist
 /electron-base-app/package-lock.json
+/electron-vite2-vue3/node_modules
