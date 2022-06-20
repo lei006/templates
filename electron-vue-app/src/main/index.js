@@ -21,7 +21,8 @@ if (process.env.NODE_ENV !== 'development') {
 
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
-  : `file://${__dirname}/index.html`
+  : `www.baidu.com`
+  //: `file://${__dirname}/index.html`
 
 //app.commandLine.appendSwitch('ignore-certificate-errors')
 
@@ -67,6 +68,8 @@ function createWindow () {
   });
   //win_main.loadFile('./src/views/main.html')
   win_main.loadURL(winURL)
+
+  win_main.webContents.openDevTools()
 
 
 }
