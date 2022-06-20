@@ -7,7 +7,7 @@ let mainWin = undefined;
 
 const winURL = process.env.NODE_ENV === 'devlopment'
   ? `http://localhost:3000`
-  : `file://${__dirname}/../../dist/index.html`
+  : `file://${__dirname}/index.html`
 
 
 

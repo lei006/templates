@@ -1,16 +1,16 @@
 {
   "name": "electron-vite",
   "private": true,
-  "version": "0.0.0",
-  "main": "src/main/index.js",
+  "version": "0.0.1",
+  "main": "dist/main.js",
   "scripts": {
     "dev": "concurrently -k \"yarn dev:vite\" \"yarn dev:electron-vite\"",
     "dev:vite": "vite",
     "dev:electron": "cross-env NODE_ENV=devlopment electron src/main/index.js",
     "dev:electron-vite": "wait-on tcp:3000 && yarn dev:electron",
-    "build": "yarn build:vite && yarn build:electron",
+    "build": "yarn build:vite && yarn build:main && yarn build:electron",
     "build:vite": "vue-tsc --noEmit && vite build",
-    "build:main": "vue-tsc --noEmit && vite build",
+    "build:main": "cross-env NODE_ENV=production webpack --progress  --config .electron-vue/webpack.main.config.js",
     "build:electron": "electron-builder",
     "preview": "vite preview"
   },
@@ -26,27 +26,30 @@
       "allowToChangeInstallationDirectory": true
     },
     "files": [
-      "dist/**/*",
-      "src/main/**/*"
+      "dist/**/*"
     ],
     "directories": {
       "buildResources": "assets",
       "output": "build"
     }
   },
-
   "dependencies": {
     "vue": "^3.2.25",
     "wait-on": "^6.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
     "@vitejs/plugin-vue": "^2.3.3",
+    "babel-loader": "^8.2.5",
+    "babel-minify-webpack-plugin": "^0.3.1",
     "concurrently": "^7.2.2",
     "cross-env": "^7.0.3",
     "electron": "^19.0.4",
     "electron-builder": "^23.0.3",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.7",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   }
 }
