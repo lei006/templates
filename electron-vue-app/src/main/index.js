@@ -2,10 +2,11 @@
 const { app, BrowserWindow, dialog, globalShortcut, ipcMain, session } = require('electron')
 
 
-
-
 const fs = require('fs')
 const path = require('path')
+
+import web_app from './express/index'
+
 
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
@@ -88,7 +89,12 @@ function createWindow () {
 
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(function(){
+
+  web_app.Start(1234);
+  createWindow();
+
+})
 
 
 
