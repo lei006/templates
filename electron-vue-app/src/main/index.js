@@ -21,8 +21,8 @@ if (process.env.NODE_ENV !== 'development') {
 
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
-  : `www.baidu.com`
-  //: `file://${__dirname}/index.html`
+  //: `https://www.zhihu.com/`
+  : `file://${__dirname}/index.html`
 
 //app.commandLine.appendSwitch('ignore-certificate-errors')
 
@@ -58,6 +58,7 @@ function createWindow () {
   })
 
   win_main.once('ready-to-show', () => {
+    console.log("show");
     win_main.show()
   })
 
@@ -68,8 +69,21 @@ function createWindow () {
   });
   //win_main.loadFile('./src/views/main.html')
   win_main.loadURL(winURL)
-
-  win_main.webContents.openDevTools()
+  console.log("load");
+  //win_main.webContents.openDevTools()
+  const options = {
+    type: 'question',
+    buttons: ['Cancel', 'Yes, please', 'No, thanks'],
+    defaultId: 2,
+    cancelId: 0,
+    title: 'Question',
+    message: 'my window?',
+    detail: 'It does not really matter',
+    checkboxLabel: 'remember',
+    checkboxChecked: true,
+  }; 
+  
+  //dialog.showMessageBoxSync(win_main, options);
 
 
 }

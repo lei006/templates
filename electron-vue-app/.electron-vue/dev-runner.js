@@ -8,6 +8,7 @@ const { spawn } = require('child_process')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackHotMiddleware = require('webpack-hot-middleware')
+const moment = require('moment');
 
 const mainConfig = require('./webpack.main.config')
 const rendererConfig = require('./webpack.renderer.config')
@@ -64,8 +65,9 @@ function startRenderer () {
       {
         contentBase: path.join(__dirname, '../'),
         quiet: true,
+        hot: true,
         before (app, ctx) {
-          app.use(hotMiddleware)
+          // app.use(hotMiddleware)
           ctx.middleware.waitUntilValid(() => {
             resolve()
           })
@@ -105,6 +107,7 @@ function startMain () {
 
         setTimeout(() => {
           manualRestart = false
+          console.log("startMain", 50000);
         }, 5000)
       }
 
@@ -144,18 +147,13 @@ function electronLog (data, color) {
   let log = ''
   data = data.toString().split(/\r?\n/)
   data.forEach(line => {
-    log += `  ${line}\n`
+    log += `  ${line} `
   })
   if (/[0-9A-z]+/.test(log)) {
-    /*
-    console.log(
-      chalk[color].bold('┏ Electron -------------------') + '\n\n' +
-      log +
-      chalk[color].bold('┗ ----------------------------') + '\n'
-    )
-    */
-    console.log( log )
+    //console.log(chalk[color].bold(moment().format()) + log)
   }
+  console.log(chalk[color].bold(moment().format()) + log)
+
 }
 
 function greeting () {
