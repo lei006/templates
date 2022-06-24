@@ -18,7 +18,7 @@ label {
 html {
   height: 100%;
   box-sizing: border-box;
-  font-size:62.5%;
+  font-size:16px;
 }
 
 #app {
@@ -183,4 +183,18 @@ div:focus {
 
 }
 
+
+.flex-row-center-center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+}
+
+.flex-col-center-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
 

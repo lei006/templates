@@ -1,10 +1,10 @@
 <template>
   <div class="footer-box">
-    <div class="footer-version ">
+    <div class="footer-version flex-row-center-center">
       <div v-if="cur_Version == last_version">当前版本: {{cur_Version}}</div>
       <div v-if="cur_Version != last_version" style="color:#ff0066;cursor: pointer;" @click="onBtnDownload">下载最新版本: {{last_version}}</div>
     </div>
-    <div class="footer-iframe">
+    <div class="footer-iframe flex-row-center-center">
       <iframe class="frame-class" frameborder=0 name="showHere" scrolling="no" :src="url_bottom" ></iframe>      
     </div>
   </div>
@@ -92,13 +92,6 @@ export default {
     height: 100%;
     flex:1;
   }
-
-
-  .titlebar {
-    -webkit-user-select: none;
-    -webkit-app-region: drag;
-  }
-
 
   .frame-class{
     width:100%;

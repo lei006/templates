@@ -9,20 +9,22 @@
       </div>      
       <div class="fixed-footer">
         <Footer />
-      </div>      
+      </div>
     </div>
+    <Dialogs></Dialogs>
   </div>
 </template>
 
 <script>
-import { Navbar,Footer, AppMain } from './components'
+import { Navbar, Footer, AppMain, Dialogs } from './components'
 
 export default {
   name: 'Layout',
   components: {
     Navbar,
     Footer,
-    AppMain
+    AppMain,
+    Dialogs
   },
   computed: {
 
@@ -53,15 +55,6 @@ export default {
     height: 100%;
     width: 100%;
   }
-  .drawer-bg {
-    background: #000;
-    opacity: 0.3;
-    width: 100%;
-    top: 0;
-    height: 100%;
-    position: absolute;
-    z-index: 999;
-  }
 
   .main-container {
     width: 100%;
@@ -86,7 +79,7 @@ export default {
   }
 
   .fixed-footer {
-    height: 40px;
+    height: 32px;
     width: 100%;
     transition: width 0.28s;
 
@@ -95,8 +88,5 @@ export default {
     border-top-style:solid;
   }
 
-  .mobile .fixed-header {
-    width: 100%;
-  }
 
 </style>

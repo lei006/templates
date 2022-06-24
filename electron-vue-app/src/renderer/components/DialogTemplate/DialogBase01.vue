@@ -1,30 +1,9 @@
 <template>
-  <div class="app-dialog-box" separator="/">
     
-  
     <el-dialog title="PDF转换器" custom-class="login-dialog" :modal="dialog_modal" :close-on-click-modal="click_dialog_modal_close" :visible.sync="dialogVisible" :before-close="handleClose" v-draggable>
-
-      <div class="login-title" >用户登录</div>
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm" style="margin-bottom: 50px;">
-          <el-form-item label="用户名" prop="username">
-            <el-input style="width: 240px; margin-right: 150px;" placeholder="填写用户名（手机号码）" v-model.number="ruleForm.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <div style="display: flex;">
-              <el-input style="margin-right: 150px;" maxlength=36 placeholder="请输入密码" type="text" v-model="ruleForm.password" autocomplete="off"></el-input>
-            </div>
-          </el-form-item>
-          <el-form-item>
-            <el-button style="width: 220px; height:40px; font-size: 12px;" type="primary" @click="submitForm('ruleForm')">立即登录</el-button>
-          </el-form-item>
-      </el-form>
-      <el-divider></el-divider>
-      <div class="tig-txt">
-        <el-link type="primary" style="font-size:20px;" @click="onBtnToRegedit"><b>创建一个帐号{{setup.version}}，立即登录</b></el-link>
-      </div>
+        11111111111111111
     </el-dialog>
 
-  </div>
 </template>
 
 <script>
@@ -59,7 +38,7 @@ export default {
       };
       
     return {
-      dialogVisible:false,
+      dialogVisible:true,
       dialog_modal:false,
       click_dialog_modal_close:false,
       ruleForm: {
@@ -135,21 +114,7 @@ export default {
 
     sendsmsSuccess() {
       let _self = this;
-      //发送成功，60秒后可以重试
-      _self.sendsms_disabled = true;
-      _self.sendsms_space = 60;
-      let timer=setInterval(function(){
-
-        _self.sendsms_space -= 1;
-
-        if(_self.sendsms_space === 0) {
-          _self.sendsms_space = "";
-          _self.sendsms_disabled = false;
-          clearTimeout(timer);
-        }
-      },1000);
     },
-
 
     handleClose(){
       this.dialogVisible = false;
@@ -157,7 +122,6 @@ export default {
 
     onBtnToRegedit(){
       this.hide();
-      ipcRenderer.send("user-to-regedit");
     }
 
   }

@@ -71,7 +71,7 @@ function createWindow () {
   //win_main.loadFile('./src/views/main.html')
   win_main.loadURL(winURL)
   console.log("load");
-  //win_main.webContents.openDevTools()
+  win_main.webContents.openDevTools()
   const options = {
     type: 'question',
     buttons: ['Cancel', 'Yes, please', 'No, thanks'],
