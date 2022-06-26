@@ -48,7 +48,7 @@ export default {
           ]
       },      
       sendsms_disabled:false,
-      sendsms_text:"发送验证码",
+      sendsms_text:"发送验证码2",
       sendsms_space: "",
     }
   },

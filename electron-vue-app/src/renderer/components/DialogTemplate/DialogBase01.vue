@@ -1,7 +1,7 @@
 <template>
     
-    <el-dialog title="PDF转换器" custom-class="login-dialog" :modal="dialog_modal" :close-on-click-modal="click_dialog_modal_close" :visible.sync="dialogVisible" :before-close="handleClose" v-draggable>
-        11111111111111111
+    <el-dialog title="PDF转换器" custom-class="login-dialog" width="450px" size="mini" :modal="dialog_modal" :close-on-click-modal="click_dialog_modal_close" :visible.sync="dialogVisible" :before-close="handleClose" v-draggable>
+        <slot></slot>
     </el-dialog>
 
 </template>
@@ -39,7 +39,7 @@ export default {
       
     return {
       dialogVisible:true,
-      dialog_modal:false,
+      dialog_modal:true,
       click_dialog_modal_close:false,
       ruleForm: {
           password: '',
@@ -54,7 +54,7 @@ export default {
           ]
       },      
       sendsms_disabled:false,
-      sendsms_text:"发送验证码",
+      sendsms_text:"发送验证码4",
       sendsms_space: "",
     }
   },
