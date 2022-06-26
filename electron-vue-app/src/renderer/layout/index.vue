@@ -5,18 +5,23 @@
         <navbar />
       </div>
       <div class="fixed-main">
+        <div class="fixed-Aside">
+          <Aside></Aside>
+        </div>
         <app-main />
-      </div>      
+      </div>
+      <!--
       <div class="fixed-footer">
         <Footer />
       </div>
+      -->
     </div>
     <Dialogs></Dialogs>
   </div>
 </template>
 
 <script>
-import { Navbar, Footer, AppMain, Dialogs } from './components'
+import { Navbar, Footer, AppMain, Dialogs, Aside } from './components'
 
 export default {
   name: 'Layout',
@@ -24,7 +29,8 @@ export default {
     Navbar,
     Footer,
     AppMain,
-    Dialogs
+    Dialogs,
+    Aside,
   },
   computed: {
 
@@ -77,6 +83,16 @@ export default {
     width: 100%;
     flex: 1;    
   }
+
+  .fixed-Aside{
+    height:100%;
+    width:68px;
+
+    border-right-width: 1px;
+    border-right-color: #ddd;
+    border-right-style:solid;    
+  }
+
 
   .fixed-footer {
     height: 32px;

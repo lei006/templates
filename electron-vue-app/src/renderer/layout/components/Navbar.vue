@@ -7,20 +7,13 @@
       </div>
     </div>
 
-    <div class="navbar-menu-control">
-      <div class="app-menu-box" >
-        <div class="menu-button-box" @click="onBtnLogin">
-          <span class="icon iconfont icon-un-setup-o icon-mini-font-size"></span>
-          <div class="menu-button-text">登录</div>
-        </div>
-      </div>
-    </div>
-
     <div class="navbar-system-control">
       <el-breadcrumb class="app-breadcrumb" separator="/">
-        <SystemButtonText text="设置"><span class="icon iconfont icon-un-setup-o"></span></SystemButtonText>
-        <SystemButton @click="onBtnMini">─</SystemButton>
-        <SystemButton @click="onBtnExit">✖</SystemButton>
+        <SystemButton01 text="设置"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
+        <SystemButton01 text="登录"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
+        <SystemButton00 @click="onBtnMini"><span class="icon iconfont icon-un-setup-o"></span></SystemButton00>
+        <SystemButton00 @click="onBtnMini">─</SystemButton00>
+        <SystemButton00 @click="onBtnExit">✖</SystemButton00>
       </el-breadcrumb>
     </div>
   </div>
@@ -29,13 +22,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
-import {SystemButton, SystemButtonText} from '@/components/ButtonCustom'
+import {SystemButton00, SystemButton01} from '@/components/ButtonCustom'
 
 const {ipcRenderer, shell} = require('electron')
 
 export default {
   components: {
-    Breadcrumb,SystemButton,SystemButtonText
+    Breadcrumb,SystemButton00,SystemButton01
   },
   computed: {
     ...mapGetters([
@@ -85,8 +78,6 @@ export default {
 <style lang="scss" scoped>
 
 
-
-
 .logo-box {
   display: flex;
   justify-content: center;
@@ -117,60 +108,6 @@ export default {
   height: 100%;
 }
 
-.navbar-menu-control {
-  height: 100%;
-}
-
-
-
-
-.app-menu-box {
-  font-size: 14px;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-
-
-.menu-button-box {
-  height: 40px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  padding-right:10px;
-
-  cursor: pointer;   
-  -webkit-user-select: none;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu-button-box:hover {
-  background-color: #f8f8f8;
-  color: #fff;
-}
-
-
-.menu-button-img {
-  width: 32px; 
-  height: 32px;
-
-  border-radius: 16px;
-  margin-left:8px; 
-  margin-right:2px;
-}
-
-.menu-button-text {
-  color: #000;
-  font-size: 16px;
-}
-
-
-
 
 .app-breadcrumb.el-breadcrumb {
   font-size: 14px;
@@ -184,26 +121,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;  
-}
-
-.menu-item-txt {
-  width:32px;
-  height:32px;
-  margin: 5px;
-
-  border-radius: 3px;
-  -webkit-user-select: none;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;   
-}
-
-.menu-item-txt:hover {
-  background-color: #bbb;
-  color: #fff;
 }
 
 

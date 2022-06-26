@@ -1,6 +1,6 @@
 <template>
     <div class="system-button" :style="{  'color': color, }" @click="onClick">
-        <div class="system-button-icon"><slot>ICON</slot></div>
+        <div class="system-button-icon"><slot>ICON</slot></div><div class="system-button-text">{{text}}</div>
     </div>
 </template>
 
@@ -9,11 +9,17 @@
 export default {
 
     props: {
+        text: {
+          type: String,
+          default: ''
+        },
         color: {
           type: String,
           default: '#222'
         },
     },
+
+
 
     data() {
         return {
@@ -32,7 +38,7 @@ export default {
 
 .system-button {
 
-    min-width: 32px;
+    min-width: 34px;
     height:34px;
     line-height: 34px;
   
@@ -56,7 +62,7 @@ export default {
 
 
 .system-button-icon{
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .system-button-text{

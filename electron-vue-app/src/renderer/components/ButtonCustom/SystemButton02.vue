@@ -1,5 +1,5 @@
 <template>
-    <div class="system-button" :style="{  'color': color, }" @click="onClick">
+    <div class="system-button-col" :style="{  'color': color, }" @click="onClick">
         <div class="system-button-icon"><slot>ICON</slot></div><div class="system-button-text">{{text}}</div>
     </div>
 </template>
@@ -36,26 +36,23 @@ export default {
 <style lang="scss" scoped>
 
 
-.system-button {
+.system-button-col {
 
-    min-width: 32px;
-    height:34px;
-    line-height: 34px;
-  
+    width: 60px;
+    min-height:34px;
     padding: 5px;
 
     border-radius: 3px;
 
-    margin-right: 5px;
-
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-  cursor: pointer;   
+    cursor: pointer;   
 }
 
-.system-button:hover {
+.system-button-col:hover {
   background-color: #ccc;
   color: #fff;
 }
@@ -66,7 +63,8 @@ export default {
 }
 
 .system-button-text{
-    margin-left: 5px;
+    font-size: 12px;
+    white-space:nowrap;
 }
 
 

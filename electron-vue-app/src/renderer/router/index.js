@@ -52,6 +52,29 @@ export const constantRoutes = [
     }]
   },
 
+  {
+    path: '/page01',
+    component: Layout,
+    redirect: '/page01',
+    children: [{
+      path: 'page01',
+      name: 'Page01',
+      component: () => import('@/views/page01/index'),
+      meta: { title: '页面一', icon: 'dashboard' }
+    }]
+  },
+  {
+    path: '/page02',
+    component: Layout,
+    redirect: '/page02',
+    children: [{
+      path: 'page02',
+      name: 'Page02',
+      component: () => import('@/views/page02/index'),
+      meta: { title: '页面二', icon: 'dashboard' }
+    }]
+  },
+
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/', hidden: true },
