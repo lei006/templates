@@ -1,0 +1,51 @@
+{
+  "id": "3485231",
+  "name": "electron-模板图标",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "752675",
+      "name": "setup",
+      "font_class": "0701shezhi",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "1463641",
+      "name": "设置",
+      "font_class": "Set-up",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "11420378",
+      "name": "un-setup-o",
+      "font_class": "un-setup-o",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "11792270",
+      "name": "setup",
+      "font_class": "setup",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11891810",
+      "name": "setup",
+      "font_class": "setup1",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "15167614",
+      "name": "setup",
+      "font_class": "setup2",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    }
+  ]
+}

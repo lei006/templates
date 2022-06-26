@@ -10,16 +10,17 @@
     <div class="navbar-menu-control">
       <div class="app-menu-box" >
         <div class="menu-button-box" @click="onBtnLogin">
-          <el-image class="menu-button-img" :src="user_url" :fit="logo_fit"></el-image>
-          <div class="menu-button-text">用户登录</div>
+          <span class="icon iconfont icon-un-setup-o icon-mini-font-size"></span>
+          <div class="menu-button-text">登录</div>
         </div>
       </div>
     </div>
 
     <div class="navbar-system-control">
       <el-breadcrumb class="app-breadcrumb" separator="/">
-        <div class="menu-item-txt" @click="onBtnMini">─</div>
-        <div class="menu-item-txt" @click="onBtnExit">✖</div>
+        <SystemButtonText text="设置"><span class="icon iconfont icon-un-setup-o"></span></SystemButtonText>
+        <SystemButton @click="onBtnMini">─</SystemButton>
+        <SystemButton @click="onBtnExit">✖</SystemButton>
       </el-breadcrumb>
     </div>
   </div>
@@ -28,12 +29,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
+import {SystemButton, SystemButtonText} from '@/components/ButtonCustom'
 
 const {ipcRenderer, shell} = require('electron')
 
 export default {
   components: {
-    Breadcrumb,
+    Breadcrumb,SystemButton,SystemButtonText
   },
   computed: {
     ...mapGetters([

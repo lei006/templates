@@ -53,43 +53,6 @@ export const constantRoutes = [
   },
 
 
-  /*  
-  {
-    path: '/pdf2file',
-    component: Layout,
-    redirect: '/pdf2file',
-    children: [{
-      path: 'pdf2file',
-      name: 'Pdf2file',
-      component: () => import('@/views/pdf2file/index'),
-      meta: { title: 'PDF转文件', icon: 'dashboard' }
-    }]
-  },
-  {
-    path: '/file2pdf',
-    component: Layout,
-    redirect: '/file2pdf',
-    children: [{
-      path: 'file2pdf',
-      name: 'File2pdf',
-      component: () => import('@/views/file2pdf/index'),
-      meta: { title: 'PDF转文件', icon: 'dashboard' }
-    }]
-  },
-  {
-    path: '/pdf2tool',
-    component: Layout,
-    redirect: '/pdf2tool',
-    children: [{
-      path: 'pdf2tool',
-      name: 'Pdf2tool',
-      component: () => import('@/views/pdf2tool/index'),
-      meta: { title: 'PDF工具', icon: 'dashboard' }
-    }]
-  },
-
-
-  */
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/', hidden: true },
   //{ path: '*', redirect: '/404', hidden: true },

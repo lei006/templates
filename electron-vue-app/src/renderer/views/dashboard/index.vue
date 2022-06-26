@@ -3,6 +3,7 @@
 
     <div class="pdf-util-box">
       22222222222222222222233333
+        <span class="icon iconfont icon-un-setup-o icon-mini-font-size"></span>
     </div>
 
   </div>
@@ -123,6 +124,11 @@ export default {
   height: 256px;
 }
 
+
+
+.icon-mini-font-size{
+  font-size: 48px;
+}
 
 
 </style>

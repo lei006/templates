@@ -7,7 +7,7 @@ import store from './store'
 
 
 
-
+import './assets/iconfont/iconfont.css'
 
 
 import ElementUI from 'element-ui'
