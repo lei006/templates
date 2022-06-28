@@ -63,8 +63,10 @@ export default {
 }
 
 .system-button-text{
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 400;
     white-space:nowrap;
+    font-family: 'Microsoft YaHei';
 }
 
 

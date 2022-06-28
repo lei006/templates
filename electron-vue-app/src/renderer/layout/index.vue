@@ -5,10 +5,12 @@
         <navbar />
       </div>
       <div class="fixed-main">
-        <div class="fixed-Aside">
-          <Aside></Aside>
+        <div class="container-row-box">
+          <div class="fixed-Aside">
+            <Aside></Aside>
+          </div>
+          <app-main />
         </div>
-        <app-main />
       </div>
       <!--
       <div class="fixed-footer">
@@ -82,6 +84,9 @@ export default {
   .fixed-main {
     width: 100%;
     flex: 1;    
+
+    display: flex;
+    flex-direction: column;
   }
 
   .fixed-Aside{
@@ -102,6 +107,14 @@ export default {
     border-top-width: 1px;
     border-top-color: #ddd;
     border-top-style:solid;
+  }
+
+  .container-row-box{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    
   }
 
 
