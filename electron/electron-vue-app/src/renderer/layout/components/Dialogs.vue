@@ -1,11 +1,10 @@
 <template>
   <div class="dialog-box ">
-    <DialogTest ref="dlgTest" />
+    <DialogTest v-if="dlg_test_show" ref="dlgTest" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import {DialogTest} from '@/components/DialogTemplate'
 
 
@@ -16,15 +15,12 @@ export default {
   components: {
     DialogTest,
   },
-  computed: {
-    ...mapGetters([
-    ])
-  },
   data() {
     return {
       userauth:false,
       userinfo: {},  //用户信息....
       userinfoShow:false,
+      dlg_test_show:false,
     }
   },
 
@@ -35,9 +31,7 @@ export default {
   },
 
   methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
+
     onMenuClick(menu_cmd) {
 
       //显示登录界面

@@ -2,9 +2,11 @@
   <div class="aside-box ">
 
     <div class="aside-button-group">
-      <SystemButton02 text="首页"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="传输"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="好友"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="首页" @click="onToRouter1('/')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="传输" @click="onToRouter1('/page01')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="好友" @click="onToRouter1('/page02')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="example" @click="onToRouter1('/example')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="登录" @click="onToRouter1('/login')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
     </div>
 
     <div class="aside-button-ex-group">
@@ -17,7 +19,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import {SystemButton02} from '@/components/ButtonCustom'
 
@@ -26,10 +27,6 @@ const {ipcRenderer, shell} = require('electron')
 export default {
   components: {
     Breadcrumb,SystemButton02
-  },
-  computed: {
-    ...mapGetters([
-    ])
   },
   data() {
     return {
@@ -50,9 +47,7 @@ export default {
   },
 
   methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
+
     onMenuClick(menu_cmd) {
 
     },
@@ -67,6 +62,13 @@ export default {
     onBtnExit() {
       ipcRenderer.send('app-exit') // prints "pong"
     },
+    onToRouter1(path){
+        this.$router.push({path})
+        //this.$router.push({name:'home'})
+        //this.$router.push({path:path})
+        //this.$router.push({ path: '/page01' })
+
+    }
 
   }
 }

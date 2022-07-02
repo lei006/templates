@@ -9,14 +9,14 @@
           <div class="fixed-Aside">
             <Aside></Aside>
           </div>
-          <app-main />
+          <div class="fixed-app-main">
+            <app-main />
+          </div>
         </div>
       </div>
-      <!--
       <div class="fixed-footer">
-        <Footer />
+        <Footer></Footer>
       </div>
-      -->
     </div>
     <Dialogs></Dialogs>
   </div>
@@ -36,9 +36,6 @@ export default {
   },
   computed: {
 
-    fixedHeader() {
-      return this.$store.state.settings.fixedHeader
-    },
     classObj() {
       return {
         mobile: true,
@@ -46,9 +43,7 @@ export default {
     }
   },
   methods: {
-    handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
+
   }
 }
 </script>
@@ -83,10 +78,7 @@ export default {
   }
   .fixed-main {
     width: 100%;
-    flex: 1;    
-
-    display: flex;
-    flex-direction: column;
+    height: calc(100% - 50px - 32px);
   }
 
   .fixed-Aside{
@@ -97,7 +89,10 @@ export default {
     border-right-color: #ddd;
     border-right-style:solid;    
   }
-
+  .fixed-app-main{
+    height: 100%;
+    flex: 1;
+  }
 
   .fixed-footer {
     height: 32px;

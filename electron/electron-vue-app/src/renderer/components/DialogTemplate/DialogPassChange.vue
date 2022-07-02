@@ -77,11 +77,6 @@ export default {
         sendsms_space: "",
         }
     },
-    computed: {
-        setup () {
-            return this.$store.state.setup
-        },
-    },
     created() {
     },
     methods: {

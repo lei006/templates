@@ -1,5 +1,5 @@
 <template>
-    <div class="system-button" :style="{  'color': color, }" @click="onClick">
+    <div class="system-button text-no-select" :style="{  'color': color, }" @click="onClick">
         <div class="system-button-icon"><slot>ICON</slot></div><div class="system-button-text">{{text}}</div>
     </div>
 </template>

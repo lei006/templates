@@ -3,7 +3,7 @@
 
     <div class="navbar-logo-title titlebar">
       <div class="logo-box">
-        <el-image style="width: 36px; height: 36px; margin-left:8px; margin-right:8px;" :src="logo_url" :fit="logo_fit"></el-image>海豚PDF转化器
+        <el-image style="width: 36px; height: 36px; margin-left:8px; margin-right:8px;" :src="logo_url" :fit="logo_fit"></el-image>报告工作站---云创电子
       </div>
     </div>
 
@@ -11,7 +11,7 @@
       <el-breadcrumb class="app-breadcrumb" separator="/">
         <SystemButton01 text="设置"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
         <SystemButton01 text="登录"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
-        <SystemButton00 @click="onBtnMini"><span class="icon iconfont icon-un-setup-o"></span></SystemButton00>
+        <SystemButton00><span class="icon iconfont icon-un-setup-o"></span></SystemButton00>
         <SystemButton00 @click="onBtnMini">─</SystemButton00>
         <SystemButton00 @click="onBtnExit">✖</SystemButton00>
       </el-breadcrumb>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import {SystemButton00, SystemButton01} from '@/components/ButtonCustom'
 
@@ -30,10 +29,7 @@ export default {
   components: {
     Breadcrumb,SystemButton00,SystemButton01
   },
-  computed: {
-    ...mapGetters([
-    ])
-  },
+
   data() {
     return {
       userauth:false,
@@ -53,9 +49,7 @@ export default {
   },
 
   methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
+
     onMenuClick(menu_cmd) {
 
     },

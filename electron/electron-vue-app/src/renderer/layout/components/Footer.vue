@@ -1,6 +1,6 @@
 <template>
-  <div class="footer-box">
-    <div class="footer-version flex-row-center-center">
+  <div class="footer-box text-no-select">
+    <div class="footer-version flex-row-center-center ">
       <div v-if="cur_Version == last_version">当前版本: {{cur_Version}}</div>
       <div v-if="cur_Version != last_version" style="color:#ff0066;cursor: pointer;" @click="onBtnDownload">下载最新版本: {{last_version}}</div>
     </div>
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 const {ipcRenderer, shell} = require('electron')
 
@@ -20,10 +19,7 @@ export default {
   components: {
 
   },
-  computed: {
-    ...mapGetters([
-    ])
-  },
+
   data() {
     return {
       url_bottom:"",
@@ -53,12 +49,8 @@ export default {
   },
 
   methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
     async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+
     },
     onBtnDownload(){
       ipcRenderer.send("menu-cmd", "url-download");

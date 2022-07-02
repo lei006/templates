@@ -1,18 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { defineStore } from 'pinia' //引入
 
-import { createPersistedState, createSharedMutations } from 'vuex-electron'
-
-import modules from './modules'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  modules,
-  plugins: [
-    //createPersistedState(),
-    createSharedMutations()
-  ],
-  strict: process.env.NODE_ENV !== 'production'
+const useStore = defineStore('storeId', {
+  // arrow function recommended for full type inference
+  state: () => {
+    return {
+      counter: 10000,
+      name: 'Eduardo',
+      isAdmin: true,
+    }
+  },
+  // 相当于 vue 中的 computed 计算属性
+  getters: {
+	
+	},
+   // 相当于 vue 中的 methods 方法
+  actions:{
+    increment(){
+        console.log("increment", this.counter)
+        this.counter++
+    }
+  }
 })
-
+export default useStore //导出
