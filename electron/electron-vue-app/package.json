@@ -74,6 +74,7 @@
     "pinia": "^2.0.14",
     "qrcodejs2": "0.0.2",
     "random-string": "^0.2.0",
+    "typescript": "^4.9.3",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vue-element-dialog-draggable": "^1.1.0",
