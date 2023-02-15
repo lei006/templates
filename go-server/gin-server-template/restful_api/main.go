@@ -33,3 +33,6 @@ func app_run() {
 	app.Run(gin.Default(), views, views_static)
 
 }
+
+
+
